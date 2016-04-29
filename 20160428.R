@@ -64,4 +64,25 @@ z <- c(-1, 1:3, NA);y <- z[!is.na(z)];y
 # 定义分段函数
 y <- numeric(length(x))
 y[x<0] <- 1 - x[x<0];y[x>=0] <- 1 + x[x>=0]
-#下标正整数运算
+#下标整数运算
+v <- 10:20;v[c(1,3,5,9)];v[1:5];v[c(1,2,3,2,1)]
+c("a","b","c")[rep(c(2,1,3), times=3)]
+v[-(1:5)]
+ages <- c(Li=33, Zhang=29, Liu=18);ages["Zhang"]
+fruit <- c(5, 10, 1, 20);names(fruit) <- c("orange", "banana", "apple", "peach")
+# 对象
+mode(c(1,3,5)>5)
+z <- 0:9;is.numeric(z);is.character(z)
+length(2:4);length(z)
+digits <- as.character(z); digits
+d <- as.numeric(digits); d
+x <- numeric()
+x[3] <- 17;x;x <- 1:3;x
+x <- x[1:2];x
+alpha <- 1:10;alpha <- alpha[2 * 1:5];alpha
+length(alpha) <- 3;alpha
+x <- c(apple=2.5,orange=2.1); x;attributes(x)
+attr(x,"names")
+attr(x,"names") <- c("apple","grapes"); x
+attr(x,"type") <- "fruit"; x
+attributes(x)
