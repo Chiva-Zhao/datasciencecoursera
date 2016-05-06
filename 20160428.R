@@ -215,3 +215,61 @@ detach(df)
 #########################
 #     读写数据文件      #
 #########################
+# read.table(file, header = FALSE, sep = "", quote = "\"’",
+#            dec = ".", row.names, col.names, as.is = FALSE,
+#            na.strings = "NA", colClasses = NA, nrows = -1,
+#            skip = 0, check.names = TRUE,
+#            fill = !blank.lines.skip, strip.white = FALSE,
+#            blank.lines.skip = TRUE, comment.char = "#")
+rt<-read.table("houses.data")
+is.data.frame(rt)
+# scan(file = "", what = double(0), nmax = -1,
+#      n = -1, sep = "",
+#      quote = if(identical(sep, "\n")) "" else "’\"",
+#      dec = ".", skip = 0, nlines = 0, na.strings = "NA",
+#      flush = FALSE, fill = FALSE, strip.white = FALSE,
+#      quiet = FALSE, blank.lines.skip = TRUE,
+#      multi.line = TRUE, comment.char = "",
+#      allowEscapes = TRUE)
+w <- scan("weight.data")
+inp <- scan("h_w.data", list(height=0, weight=0))
+is.list(inp)
+X <- matrix(scan("weight.data", 0),nrow=3, ncol=5, byrow=TRUE)
+x<-scan()
+#其他格式数据文件
+library(foreign)
+#SPSS
+rs <- read.spss("educ_scores.sav")
+rs<-read.spss("educ_scores.sav", to.data.frame=TRUE)
+#SAS
+rx <- read.xport("educ_scores.xpt")
+# S-Plus
+rs <- read.S("educ_scores")
+# Stata
+rd <- read.dta("educ_scores.dta")
+#Excel
+rd <- read.delim("educ_scores.txt")
+rc <- read.csv("educ_scores.csv")
+#链接嵌入的数据库
+data()
+data(infert)
+data(package="nls")
+data(Puromycin,package="nls")
+library(nls);data();data("Puromycin")
+#写数据文件
+# write(x, file = "data",ncolumns = if(is.character(x)) 1 else 5,append = FALSE)
+df <- data.frame(
+  Name=c("Alice", "Becka", "James", "Jeffrey", "John"),
+  Sex=c("F", "F", "M", "M", "M"),
+  Age=c(13, 13, 12, 13, 12),
+  Height=c(56.5, 65.3, 57.3, 62.5, 59.0),
+  Weight=c(84.0, 98.0, 83.0, 84.0, 99.5)
+)
+# write.table(x, file = "", append = FALSE, quote = TRUE,
+#             sep = " ", eol = "\n", na = "NA", dec = ".",
+#             row.names = TRUE, col.names = TRUE,
+#             qmethod = c("escape", "double"))
+# write.csv(..., col.names = NA, sep = ",",
+#           qmethod = "double")
+write.table(df, file="foo.txt")
+write.csv(df, file="foo.csv")
