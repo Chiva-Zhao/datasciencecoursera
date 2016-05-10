@@ -31,3 +31,12 @@ x.na <- c(75.0,64.0,47.4,NA,66.9,62.2,62.2,58.7,63.5);median(x.na);median(x,na.r
 # quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE,names = TRUE, type = 7, ...)
 w <- c(75.0, 64.0, 47.4, 66.9, 62.2, 62.2, 58.7, 63.5,66.6, 64.0, 57.0, 69.0, 56.9, 50.0, 72.0)
 quantile(w);quantile(w, probs = seq(0, 1, 0.2))
+# var(x, y = NULL, na.rm = FALSE, use);sd(x, na.rm = FALSE)
+var(w);sd(w)
+cv <- 100*sd(w)/mean(w); cv
+css <- sum((w-mean(w))^2); css
+uss <- sum(w^2); uss
+source("data_outline.R")
+w <- c(75.0, 64.0, 47.4, 66.9, 62.2, 62.2, 58.7, 63.5,
+       66.6, 64.0, 57.0, 69.0, 56.9, 50.0, 72.0)
+data_outline(w)
