@@ -40,3 +40,16 @@ source("data_outline.R")
 w <- c(75.0, 64.0, 47.4, 66.9, 62.2, 62.2, 58.7, 63.5,
        66.6, 64.0, 57.0, 69.0, 56.9, 50.0, 72.0)
 data_outline(w)
+#茎叶图，箱线图
+stem(w)
+boxplot(x)
+# shapiro.test(x)
+w <- c(75.0, 64.0, 47.4, 66.9, 62.2, 62.2, 58.7, 63.5,
+       66.6, 64.0, 57.0, 69.0, 56.9, 50.0, 72.0)
+shapiro.test(w)
+shapiro.test(runif(100, min = 2, max = 4))
+# ks.test(x, y, ...,
+#         alternative = c("two.sided", "less", "greater"),
+#         exact = NULL)
+x<-rt(100,5)
+ks.test(x, "pf",2,5)
