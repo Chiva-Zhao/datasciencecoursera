@@ -25,3 +25,18 @@ stars(X, full=FALSE, draw.segments = TRUE,
 
 source("unison.R")
 unison(X)
+
+x <- rcauchy(1000,1)
+f <- function(p) sum((x-p)/(1+(x-p)^2))
+out <- uniroot(f, c(0, 5))
+# optimize(f = , interval = , lower = min(interval),
+#          upper = max(interval), maximum = FALSE,
+#          tol = .Machine$double.eps^0.25, ...)
+# optimise(f = , interval = , lower = min(interval),
+#          upper = max(interval), maximum = FALSE,
+#          tol = .Machine$double.eps^0.25, ...)
+loglike <- function(p) sum(log(1+(x-p)^2))
+out <- optimize(loglike, c(0, 5))
+
+source("Rosenbrock.R")
+x0<-c(-1.2,1); nlm(obj,x0)
