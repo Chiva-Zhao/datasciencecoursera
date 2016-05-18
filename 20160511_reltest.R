@@ -40,3 +40,10 @@ out <- optimize(loglike, c(0, 5))
 
 source("Rosenbrock.R")
 x0<-c(-1.2,1); nlm(obj,x0)
+
+source("interval_estimate1.R")
+X<-c(14.6, 15.1,14.9, 14.8, 15.2,15.1)
+interval_estimate1(X, sigma=0.2)
+source("interval_estimate1.R")
+X<-c(10.1, 10, 9.8, 10.5, 9.7, 10.1, 9.9, 10.2, 10.3, 9.9)
+interval_estimate1(X)
